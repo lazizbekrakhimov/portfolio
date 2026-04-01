@@ -13,77 +13,34 @@ export default function LoadingScreen({ onDone }: { onDone: () => void }) {
       if (i >= langs.length) {
         setTimeout(() => {
           setVisible(false);
-          setTimeout(onDone, 600);
-        }, 400);
+          setTimeout(onDone, 800);
+        }, 600);
         return;
       }
       setIndex(i);
       i++;
-      setTimeout(cycle, i === 1 ? 500 : 320);
+      setTimeout(cycle, i === 1 ? 700 : 500);
     };
-    const t = setTimeout(cycle, 200);
+    const t = setTimeout(cycle, 400);
     return () => clearTimeout(t);
   }, []);
 
   return (
-    <div
-      className="fixed inset-0 z-9999 flex flex-col items-center justify-center"
-      style={{
-        background: 'var(--bg)',
-        transition: 'opacity 0.6s ease',
-        opacity: visible ? 1 : 0,
-        pointerEvents: visible ? 'all' : 'none',
-      }}
-    >
-      <div className="absolute inset-0 grid-bg opacity-30" />
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center" style={{ background: 'var(--bg)', transition: 'opacity 0.8s ease', opacity: visible ? 1 : 0, pointerEvents: visible ? 'all' : 'none', overflow: 'hidden', }}  >
 
-      <div className="relative z-10 flex flex-col items-center gap-8">
-        <div className="relative w-20 h-20">
-          <img src="/logo.png" alt="LR" className="w-full h-full object-cover" style={{ filter: 'grayscale(0.2)' }} />
-          <div className="absolute inset-0 border border-(--accent) opacity-40" style={{ transform: 'translate(4px, 4px)' }} />
-        </div>
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '100% 4px', animation: 'scanlineFlicker 0.1s infinite steps(1)', pointerEvents: 'none', }} />
 
-        <div className="text-center">
-          <div
-            className="font-display crt-glow"
-            style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', color: 'var(--fg)', lineHeight: 1 }}
-          >
+      <div className="relative z-10 flex flex-col items-center gap-10">
+        <div className="text-center relative">
+          <div className="font-display crt-glow relative" style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', color: 'var(--fg)', lineHeight: 1, textShadow: ` 0 0 2px var(--accent),  0 0 6px var(--accent) `, animation: 'flicker 1.5s infinite alternate', }}  >
             {greetings[langs[index]]}
           </div>
-          <div className="mt-2 text-[0.6rem] tracking-[0.25em] uppercase" style={{ color: 'var(--muted)' }}>
-            {langs[index].toUpperCase()}
-            <span className="blink-cursor" />
-          </div>
+          <div style={{ position: 'absolute', top: 0, left: '-50%', width: '200%', height: '100%', background: 'linear-gradient(120deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.04) 100%)', transform: 'skewX(-20deg)', pointerEvents: 'none', animation: 'lightSweep 2s infinite' }} />
         </div>
 
-        <div className="w-48 h-px" style={{ background: 'var(--border)' }}>
-          <div
-            className="h-full"
-            style={{
-              background: 'var(--accent)',
-              width: `${((index + 1) / langs.length) * 100}%`,
-              transition: 'width 0.3s ease',
-              boxShadow: '0 0 8px var(--blue-glow)',
-            }}
-          />
+        <div className="w-48 h-1 rounded overflow-hidden border border-var(--border)" style={{ background: 'var(--border)' }}>
+          <div className="h-full rounded" style={{ width: `${((index + 1) / langs.length) * 100}%`, background: 'var(--accent)', boxShadow: '0 0 6px var(--accent33)', transition: 'width 0.5s ease, box-shadow 0.5s ease' }} />
         </div>
-
-        <div className="text-[0.6rem] tracking-[0.2em] uppercase" style={{ color: 'var(--muted)' }}>
-          lazizbek.dev — loading
-        </div>
-      </div>
-
-      <div className="absolute top-6 left-6 text-[0.55rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-        SYS_INIT
-      </div>
-      <div className="absolute top-6 right-6 text-[0.55rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-        v2026.1
-      </div>
-      <div className="absolute bottom-6 left-6 text-[0.55rem] tracking-widest" style={{ color: 'var(--muted)' }}>
-        ©2026
-      </div>
-      <div className="absolute bottom-6 right-6 text-[0.55rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-        TKT / UZ
       </div>
     </div>
   );

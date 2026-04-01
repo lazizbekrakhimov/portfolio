@@ -1,10 +1,7 @@
 export const languages = {
   en: 'EN',
-  ru: 'RU',
   uz: 'UZ',
-  de: 'DE',
-  fr: 'FR',
-  ja: 'JA',
+  ru: 'RU'
 } as const;
 
 export type Lang = keyof typeof languages;
@@ -13,111 +10,75 @@ export const defaultLang: Lang = 'en';
 
 export const greetings: Record<Lang, string> = {
   en: 'Hello',
-  ru: 'Здравствуйте',
   uz: 'Salom',
-  de: 'Hallo',
-  fr: 'Bonjour',
-  ja: 'こんにちは',
+  ru: 'Привет',
 };
 
 export const t: Record<Lang, Record<string, string>> = {
   en: {
     role: 'Full-Stack Developer',
-    tagline: 'Crafting reliable and scalable digital products.',
+    tagline: 'I build web apps that are fast, reliable, and easy to love.',
+
     nav_skills: 'Skills',
     nav_about: 'About',
     nav_projects: 'Projects',
     nav_contact: 'Contact',
 
     skills_title: 'Skills',
-    skills_sub: 'Technologies I use in production',
+    skills_sub: 'The tools and tech I actually use day-to-day',
 
     about_title: 'About Me',
     about_text:
-      'I am a full-stack developer based in Tashkent. I build clean, scalable, and high-performance web applications using modern technologies. Outside of coding, I enjoy cars and listening to Daft Punk.',
+      'Hey! I’m a full-stack developer based in Tashkent. I love turning ideas into web apps that are clean, fast, and reliable. Outside of coding, you’ll usually find me exploring retro tunes, tinkering with cars, or geeking out over design trends.',
 
     projects_title: 'Projects',
-    projects_sub: 'Selected work — more coming soon',
+    projects_sub: 'Some of my favorite work — and more coming soon',
 
-    contact_title: 'Let’s Collaborate',
-    contact_sub: 'Currently open to opportunities',
-    contact_btn: 'Send Message',
+    contact_title: 'Let’s Chat',
+    contact_sub: 'Always open for cool projects or collaborations',
+    contact_btn: 'Say Hello',
 
-    loading: 'Initializing...',
+    loading: 'Loading…',
 
-    not_found_title: 'Signal Lost',
-    not_found_sub: 'This page does not exist in this dimension.',
-    not_found_btn: 'Return Home',
+    not_found_title: 'Oops! Page not found',
+    not_found_sub: 'Looks like you took a wrong turn somewhere.',
+    not_found_btn: 'Back Home',
 
-    interests_title: 'Beyond Coding',
+    interests_title: 'Beyond Code',
 
     advanced: 'Advanced',
     medium: 'Intermediate',
-    basic: 'Basic',
-  },
-
-  ru: {
-    role: 'Full-Stack разработчик',
-    tagline: 'Создаю надёжные и масштабируемые цифровые решения.',
-    nav_skills: 'Навыки',
-    nav_about: 'Обо мне',
-    nav_projects: 'Проекты',
-    nav_contact: 'Контакты',
-
-    skills_title: 'Навыки',
-    skills_sub: 'Технологии, которые я применяю на практике',
-
-    about_title: 'Обо мне',
-    about_text:
-      'Я full-stack разработчик из Ташкента. Создаю чистые, масштабируемые и производительные веб-приложения с использованием современных технологий.',
-
-    projects_title: 'Проекты',
-    projects_sub: 'Избранные работы — скоро будет больше',
-
-    contact_title: 'Сотрудничество',
-    contact_sub: 'Открыт для новых возможностей',
-    contact_btn: 'Написать сообщение',
-
-    loading: 'Инициализация...',
-
-    not_found_title: 'Сигнал потерян',
-    not_found_sub: 'Эта страница не существует.',
-    not_found_btn: 'Вернуться на главную',
-
-    interests_title: 'Вне разработки',
-
-    advanced: 'Продвинутый',
-    medium: 'Средний',
-    basic: 'Базовый',
+    basic: 'Beginner',
   },
 
   uz: {
     role: 'Full-Stack Dasturchi',
-    tagline: 'Ishonchli va kengaytiriladigan veb-ilovalar yarataman.',
+    tagline: 'Men tez, ishonchli va yoqimli web-ilovalar yarataman.',
+
     nav_skills: 'Ko‘nikmalar',
     nav_about: 'Men haqimda',
     nav_projects: 'Loyihalar',
     nav_contact: 'Aloqa',
 
     skills_title: 'Ko‘nikmalar',
-    skills_sub: 'Amalda foydalanadigan texnologiyalarim',
+    skills_sub: 'Kunlik ishlashda foydalanuvchi texnologiyalarim',
 
     about_title: 'Men haqimda',
     about_text:
-      'Men Toshkentda faoliyat yurituvchi full-stack dasturchiman. Zamonaviy texnologiyalar yordamida toza, tezkor va kengaytiriladigan veb-ilovalar yarataman.',
+      'Salom! Men Toshkentda faoliyat yurituvchi full-stack dasturchiman. G‘oyalarni tez, toza va ishonchli web-ilovalarga aylantirishni yaxshi ko‘raman. Kod yozmayotgan paytimda retro musiqini tinglayman, avtomobillar bilan shug‘ullanaman yoki dizayn trendlarini o‘rganaman.',
 
     projects_title: 'Loyihalar',
-    projects_sub: 'Tanlangan ishlar — tez orada yana qo‘shiladi',
+    projects_sub: 'Eng sevimli ishlashlarim — va yana tez orada ko‘proq',
 
-    contact_title: 'Hamkorlik',
-    contact_sub: 'Yangi imkoniyatlarga ochiqman',
-    contact_btn: 'Xabar yuborish',
+    contact_title: 'Gaplashamiz',
+    contact_sub: 'Qiziqarli loyihalar va hamkorliklarga har doim ochiqman',
+    contact_btn: 'Salom aytish',
 
-    loading: 'Yuklanmoqda...',
+    loading: 'Yuklanmoqda…',
 
-    not_found_title: 'Signal topilmadi',
-    not_found_sub: 'Bu sahifa mavjud emas.',
-    not_found_btn: 'Bosh sahifaga qaytish',
+    not_found_title: 'Ups! Sahifa topilmadi',
+    not_found_sub: 'Qayerdadir yo‘lni adashtirdingiz.',
+    not_found_btn: 'Bosh sahifaga',
 
     interests_title: 'Koddan tashqarida',
 
@@ -126,108 +87,39 @@ export const t: Record<Lang, Record<string, string>> = {
     basic: 'Boshlang‘ich daraja',
   },
 
-  de: {
-    role: 'Full-Stack Entwickler',
-    tagline: 'Ich entwickle zuverlässige und skalierbare Weblösungen.',
-    nav_skills: 'Fähigkeiten',
-    nav_about: 'Über mich',
-    nav_projects: 'Projekte',
-    nav_contact: 'Kontakt',
+  ru: {
+    role: 'Full-Stack разработчик',
+    tagline: 'Создаю быстрые, надежные и удобные веб-приложения.',
 
-    skills_title: 'Fähigkeiten',
-    skills_sub: 'Technologien, die ich produktiv einsetze',
+    nav_skills: 'Навыки',
+    nav_about: 'Обо мне',
+    nav_projects: 'Проекты',
+    nav_contact: 'Контакты',
 
-    about_title: 'Über mich',
+    skills_title: 'Навыки',
+    skills_sub: 'Технологии, которые я реально использую каждый день',
+
+    about_title: 'Обо мне',
     about_text:
-      'Ich bin ein Full-Stack-Entwickler aus Taschkent. Ich entwickle saubere, skalierbare und performante Webanwendungen mit modernen Technologien.',
+      'Привет! Я full-stack разработчик из Ташкента. Люблю превращать идеи в чистые, быстрые и надежные веб-приложения. В свободное время слушаю ретро музыку, интересуюсь автомобилями и слежу за трендами в дизайне.',
 
-    projects_title: 'Projekte',
-    projects_sub: 'Ausgewählte Arbeiten — mehr folgt bald',
+    projects_title: 'Проекты',
+    projects_sub: 'Некоторые из моих любимых проектов — и скоро добавлю ещё',
 
-    contact_title: 'Zusammenarbeit',
-    contact_sub: 'Offen für neue Möglichkeiten',
-    contact_btn: 'Nachricht senden',
+    contact_title: 'Давай поговорим',
+    contact_sub: 'Всегда открыт для интересных проектов и сотрудничества',
+    contact_btn: 'Сказать привет',
 
-    loading: 'Initialisierung...',
+    loading: 'Загрузка…',
 
-    not_found_title: 'Signal verloren',
-    not_found_sub: 'Diese Seite existiert nicht.',
-    not_found_btn: 'Zur Startseite',
+    not_found_title: 'Упс! Страница не найдена',
+    not_found_sub: 'Похоже, вы свернули не туда.',
+    not_found_btn: 'На главную',
 
-    interests_title: 'Außerhalb des Codes',
+    interests_title: 'Вне кода',
 
-    advanced: 'Fortgeschritten',
-    medium: 'Mittel',
-    basic: 'Grundlegend',
-  },
-
-  fr: {
-    role: 'Développeur Full-Stack',
-    tagline: 'Je conçois des applications web fiables et évolutives.',
-    nav_skills: 'Compétences',
-    nav_about: 'À propos',
-    nav_projects: 'Projets',
-    nav_contact: 'Contact',
-
-    skills_title: 'Compétences',
-    skills_sub: 'Technologies que j’utilise en pratique',
-
-    about_title: 'À propos de moi',
-    about_text:
-      'Je suis développeur full-stack basé à Tachkent. Je crée des applications web propres, performantes et évolutives avec des technologies modernes.',
-
-    projects_title: 'Projets',
-    projects_sub: 'Travaux sélectionnés — bientôt plus',
-
-    contact_title: 'Collaborons',
-    contact_sub: 'Disponible pour de nouvelles opportunités',
-    contact_btn: 'Envoyer un message',
-
-    loading: 'Initialisation...',
-
-    not_found_title: 'Signal perdu',
-    not_found_sub: 'Cette page n’existe pas.',
-    not_found_btn: 'Retour à l’accueil',
-
-    interests_title: 'Au-delà du code',
-
-    advanced: 'Avancé',
-    medium: 'Intermédiaire',
-    basic: 'Débutant',
-  },
-
-  ja: {
-    role: 'フルスタック開発者',
-    tagline: '信頼性と拡張性の高いWebアプリを開発します。',
-    nav_skills: 'スキル',
-    nav_about: '自己紹介',
-    nav_projects: 'プロジェクト',
-    nav_contact: '連絡先',
-
-    skills_title: 'スキル',
-    skills_sub: '実務で使用している技術',
-
-    about_title: '自己紹介',
-    about_text:
-      'タシケントを拠点とするフルスタック開発者です。最新技術を用いて、クリーンで高性能かつ拡張性の高いWebアプリを開発しています。',
-
-    projects_title: 'プロジェクト',
-    projects_sub: '主な制作物 — 近日追加予定',
-
-    contact_title: 'お問い合わせ',
-    contact_sub: '新しい機会を歓迎します',
-    contact_btn: 'メッセージ送信',
-
-    loading: '初期化中...',
-
-    not_found_title: 'ページが見つかりません',
-    not_found_sub: 'このページは存在しません。',
-    not_found_btn: 'ホームへ戻る',
-
-    interests_title: 'コード以外の関心',
-
-    advanced: '上級',
-    medium: '中級',
-    basic: '初級',
-  },
+    advanced: 'Продвинутый',
+    medium: 'Средний',
+    basic: 'Начальный',
+  }
 };

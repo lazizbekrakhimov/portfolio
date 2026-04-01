@@ -34,36 +34,18 @@ export default function NotFound() {
           </div>
         </div>
 
-        <div className="stamp mb-6 mx-auto">ERROR_404</div>
-
         <h1 className="font-display crt-glow mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: 'var(--accent)' }} >
           SIGNAL LOST
         </h1>
 
-        <p className="text-sm mb-2" style={{ color: 'var(--muted)', fontFamily: 'Space Mono' }}>
+        <p className="text-xl mb-10" style={{ color: 'var(--muted)', fontFamily: 'Space Mono' }}>
           This page does not exist in this dimension.
-        </p>
-        <p className="text-[0.6rem] tracking-widest uppercase mb-10" style={{ color: 'var(--muted)', opacity: 0.5 }}>
-          ERR: PAGE_NOT_FOUND / NODE: NULL / STATUS: 404
         </p>
 
         <a href="/" className="btn-accent inline-flex items-center gap-3">
           <ArrowLeft size={14} />
           Return to base
         </a>
-
-        <div className="fixed top-6 left-6 text-[0.55rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-          SYS_ERROR
-        </div>
-        <div className="fixed top-6 right-6 text-[0.55rem] tracking-widest" style={{ color: 'var(--accent)' }}>
-          <span className="blink-cursor" />
-        </div>
-        <div className="fixed bottom-6 left-6 text-[0.55rem] tracking-widest" style={{ color: 'var(--muted)' }}>
-          404
-        </div>
-        <div className="fixed bottom-6 right-6 text-[0.55rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-          lazizbek.dev
-        </div>
       </div>
     </div>
   );

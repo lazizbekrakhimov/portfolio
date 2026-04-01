@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Lang } from '@/lib/i18n';
-import Cursor from '@/components/Cursor';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -19,15 +18,12 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-    // Check if first visit
     const visited = sessionStorage.getItem('visited');
     if (visited) setLoading(false);
   }, []);
 
   useEffect(() => {
-    if (mounted) {
-      document.documentElement.className = theme;
-    }
+    if (mounted) document.documentElement.className = theme;
   }, [theme, mounted]);
 
   const handleLoadingDone = () => {
@@ -39,7 +35,6 @@ export default function Home() {
 
   return (
     <>
-      <Cursor />
       <div className="vhs-line" />
 
       {loading && <LoadingScreen onDone={handleLoadingDone} />}
