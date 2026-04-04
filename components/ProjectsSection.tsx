@@ -1,97 +1,74 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, } from 'react';
 import { ExternalLink, GitBranch, ArrowRight, X } from 'lucide-react';
 import { Lang, t } from '@/lib/i18n';
 
 const ProjectPreview = ({ id, hovered }: { id: string; hovered: boolean }) => {
-  const previews: Record<string, { bg: string; label: string; elements: string[] }> = {
+  const previews: Record<string, { bg: string }> = {
     '01': {
-      bg: '#0a1628',
-      label: 'Web App',
-      elements: ['Dashboard', 'Analytics', 'Real-time'],
+      bg: "/images/restaurant.png"
     },
     '02': {
-      bg: '#0d1a0d',
-      label: 'API + Frontend',
-      elements: ['REST API', 'MongoDB', 'React UI'],
+      bg: "/images/sector-25.png"
     },
     '03': {
-      bg: '#1a0d1a',
-      label: 'In Dev',
-      elements: ['NestJS', 'TypeScript', 'Coming soon'],
+      bg: "/images/todolist.png"
     },
+    '04': {
+      bg: "/images/github.png"
+    }
   };
+
   const p = previews[id] ?? previews['01'];
 
   return (
-    <div style={{ width: '220px', height: '150px', background: p.bg, border: '1px solid var(--accent)', position: 'relative', overflow: 'hidden', flexShrink: 0, opacity: hovered ? 1 : 0, transform: hovered ? 'translateX(0) scale(1)' : 'translateX(20px) scale(0.96)', transition: 'all 0.35s cubic-bezier(0.34, 1.2, 0.64, 1)', boxShadow: hovered ? '0 0 30px rgba(30,144,255,0.2), 6px 6px 0 rgba(30,144,255,0.15)' : 'none' }}>
-      <div style={{ background: '#111', padding: '6px 8px', display: 'flex', alignItems: 'center', gap: '4px', borderBottom: '1px solid #222' }}>
-        {['#ff5f56', '#ffbd2e', '#27c93f'].map(c => (
-          <div key={c} style={{ width: 5, height: 5, borderRadius: '50%', background: c }} />
-        ))}
-        <div style={{ marginLeft: 6, height: 5, flex: 1, background: '#222', borderRadius: 2 }} />
-      </div>
-
-      <div style={{ padding: '10px 10px 6px', display: 'flex', flexDirection: 'column', gap: 6 }}>
-        <div style={{ display: 'flex', gap: 4 }}>
-          {[40, 30, 50].map((w, i) => (
-            <div key={i} style={{ width: w, height: 4, background: 'rgba(30,144,255,0.3)', borderRadius: 2 }} />
-          ))}
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 4, marginTop: 4 }}>
-          {[100, 80, 90, 70].map((w, i) => (
-            <div key={i} style={{ height: 20, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(30,144,255,0.15)', borderRadius: 2 }} />
-          ))}
-        </div>
-        <div style={{ display: 'flex', gap: 4, marginTop: 2 }}>
-          {p.elements.map(el => (
-            <span key={el} style={{ fontSize: 7, padding: '2px 5px', border: '1px solid rgba(30,144,255,0.4)', color: 'rgba(30,144,255,0.8)', borderRadius: 1, fontFamily: 'Space Mono', letterSpacing: '0.05em' }}>
-              {el}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div style={{ position: 'absolute', bottom: 6, right: 6, fontSize: 7, color: 'var(--accent)', fontFamily: 'Space Mono', letterSpacing: '0.15em', textTransform: 'uppercase', opacity: 0.7, }}>
-        {p.label}
-      </div>
-
-      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(30,144,255,0.02) 3px, rgba(30,144,255,0.02) 4px)', }} />
-    </div>
+    <div style={{ width: '270px', height: '160px', backgroundImage: `url(${p.bg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', border: '1px solid var(--accent)', position: 'relative', overflow: 'hidden', flexShrink: 0, opacity: hovered ? 1 : 0, transform: hovered ? 'translateX(0) scale(1)' : 'translateX(20px) scale(0.96)', transition: 'all 0.35s cubic-bezier(0.34, 1.2, 0.64, 1)', boxShadow: hovered ? '0 0 30px rgba(30,144,255,0.2), 6px 6px 0 rgba(30,144,255,0.15)' : 'none' }} />
   );
 };
 
 const projects = [
   {
     id: '01',
-    title: 'Project Name',
-    description: 'Brief description of what this project does and the problem it solves. Replace with your real project.',
-    tech: ['Next.js', 'TypeScript', 'PostgreSQL'],
-    github: '#',
-    live: '#',
+    title: 'Restaurant Platform',
+    description: 'A fullstack restaurant management platform built with Next.js and Nest.js that helps manage orders, menus, and users in a structured workflow. Designed with PostgreSQL-backed APIs for real-world usability.',
+    tech: ['Next.js', 'TypeScript', 'Redux', 'Nest.js', 'PostgreSQL'],
+    github: 'https://github.com/lazizbekrakhimov/restaurant-project',
+    live: 'https://restaurant-project-final.vercel.app/',
     status: 'Live',
-    year: '2025',
+    year: '2026',
+
   },
   {
     id: '02',
-    title: 'Another Project',
-    description: 'What makes this project unique and the technologies powering it. Fill with your real work.',
-    tech: ['React', 'Node.js', 'MongoDB'],
-    github: '#',
-    live: '#',
-    status: 'In Progress',
-    year: '2025',
+    title: 'Vintage Industrial Admin Dashboard',
+    description: 'An admin dashboard built with a vintage industrial design approach, combining structured data management with a distinctive retro-inspired interface.',
+    tech: ['React', 'TailwindCSS', 'FakeApi'],
+    github: 'https://github.com/lazizbekrakhimov/sector-25.git',
+    live: 'https://sector-25.vercel.app/',
+    status: 'Live',
+    year: '2026',
   },
   {
     id: '03',
-    title: 'Coming Soon',
-    description: 'New project in development. Stay tuned for updates.',
-    tech: ['Nest.js', 'TypeScript'],
-    github: '#',
-    live: null,
+    title: 'Todolist',
+    description: 'A productivity-focused task management application currently in development. Built with Nest.js and TypeScript, it aims to provide a clean workflow for organizing daily tasks with a modern interface.',
+    tech: ['React', 'TailwindCSS'],
+    github: 'https://github.com/lazizbekrakhimov/todolist',
+    live: 'https://todolist-desktop.vercel.app/',
     status: 'Development',
     year: '2026',
   },
+  {
+    id: '04',
+    title: 'Backend Projects Collection',
+    description: 'Backend projects on GitHub featuring APIs, database integration, and scalable architectures with Nest.js, Express, and TypeScript.',
+    tech: ['Nest.js', 'Express', 'TypeScript', 'PostgreSQL', 'MongoDB'],
+    github: 'https://github.com/lazizbekrakhimov',
+    live: '',
+    status: 'In Progress',
+    year: '2026',
+    pinned: true
+  }
 ];
 
 export default function ProjectsSection({ lang }: { lang: Lang }) {

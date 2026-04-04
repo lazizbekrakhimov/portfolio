@@ -35,7 +35,7 @@ export default function NotFound() {
         </div>
 
         <h1 className="font-display crt-glow mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: 'var(--accent)' }} >
-          SIGNAL LOST
+          NOT FOUND
         </h1>
 
         <p className="text-xl mb-10" style={{ color: 'var(--muted)', fontFamily: 'Space Mono' }}>
