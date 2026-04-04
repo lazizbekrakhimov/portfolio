@@ -197,7 +197,6 @@ body::before {
   border: 1px solid var(--border);
   font-size: 0.68rem;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   transition: all 0.25s;
   color: var(--muted);
   overflow: hidden;
@@ -574,5 +573,15 @@ body::before {
 
   100% {
     background-position: 0 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

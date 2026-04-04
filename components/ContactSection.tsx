@@ -1,16 +1,42 @@
 'use client';
-import { useState } from 'react';
-import { Send, GitBranch, Link2, Mail } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Send, GitBranch, Link2, Mail, Loader2, CheckCircle } from 'lucide-react';
 import { Lang, t } from '@/lib/i18n';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID = 'service_xnggkta';
+const EMAILJS_TEMPLATE_ID = 'template_fq8y9ek';
+const EMAILJS_PUBLIC_KEY = 'HEA_5rJolN50aysfC';
 
 export default function ContactSection({ lang }: { lang: Lang }) {
   const tr = t[lang];
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    if (status === 'sending') return;
+
+    setStatus('sending');
+    setErrorMsg('');
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus('sent');
+      setForm({ name: '', email: '', message: '' });
+    } catch (err: any) {
+      console.error('EmailJS error:', err);
+      setErrorMsg('Something went wrong. Please try again or email me directly.');
+      setStatus('error');
+    }
   };
 
   return (
@@ -38,10 +64,11 @@ export default function ContactSection({ lang }: { lang: Lang }) {
             <div className="space-y-3">
               {[
                 { icon: Mail, label: 'Email', value: 'lazizbekrakhimov25@gmail.com', href: 'mailto:lazizbekrakhimov25@gmail.com' },
-                { icon: GitBranch, label: "GitHub", value: 'github.com/lazizbekrakhimov', href: 'https://github.com/lazizbekrakhimov' },
-                { icon: Link2, label: "LinkedIn", value: 'linkedin.com/in/lazizbekrakhimov', href: 'https://linkedin.com/in/lazizbekrakhimov' },
+                { icon: GitBranch, label: 'GitHub', value: 'github.com/lazizbekrakhimov', href: 'https://github.com/lazizbekrakhimov' },
+                { icon: Link2, label: 'LinkedIn', value: 'linkedin.com/in/lazizbekrakhimov', href: 'https://linkedin.com/in/lazizbekrakhimov' },
+                { icon: Send, label: 'Telegram', value: 't.me/otabekovich25', href: 'https://t.me/otabekovich25' },
               ].map(({ icon: Icon, label, value, href }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link w-full" style={{ display: 'flex', justifyContent: 'space-between' }}  >
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link w-full" style={{ display: 'flex', justifyContent: 'space-between' }} >
                   <span className="flex items-center gap-3">
                     <Icon size={12} style={{ color: 'var(--accent)' }} />
                     <span style={{ color: 'var(--muted)' }}>{label}</span>
@@ -53,37 +80,60 @@ export default function ContactSection({ lang }: { lang: Lang }) {
           </div>
 
           <div>
-            {sent ? (
-              <div className="retro-border p-8 text-center">
-                <div className="font-display crt-glow text-4xl mb-4" style={{ color: 'var(--accent)' }}>
-                  SENT
+            {status === 'sent' ? (
+              <div className="retro-border p-8 text-center flex flex-col items-center gap-4" style={{ minHeight: 320, justifyContent: 'center' }}  >
+                <CheckCircle size={40} style={{ color: 'var(--accent)' }} />
+                <div className="font-display crt-glow text-4xl" style={{ color: 'var(--accent)' }} >
+                  SENT ✓
                 </div>
                 <p className="text-sm" style={{ color: 'var(--muted)' }}>
                   Message received. I'll get back to you soon.
                 </p>
+                <button onClick={() => setStatus('idle')} className="btn-retro mt-2" style={{ fontSize: '0.7rem' }} >
+                  Send another →
+                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {[
-                  { key: 'name', label: 'Name', type: 'text', placeholder: 'Your name' },
-                  { key: 'email', label: 'Email', type: 'email', placeholder: 'your@email.com' },
-                ].map(field => (
-                  <div key={field.key}>
-                    <label className="block text-[0.6rem] tracking-widest uppercase mb-2" style={{ color: 'var(--muted)' }}>
-                      {field.label}
-                    </label>
-                    <input type={field.type} placeholder={field.placeholder} value={form[field.key as keyof typeof form]} onChange={e => setForm({ ...form, [field.key]: e.target.value })} className="w-full px-4 py-3 text-sm font-mono bg-transparent outline-none transition-all" style={{ border: '1px solid var(--border)', color: 'var(--fg)', fontFamily: 'Space Mono', }} onFocus={e => (e.target.style.borderColor = 'var(--accent)')} onBlur={e => (e.target.style.borderColor = 'var(--border)')} required />
-                  </div>
-                ))}
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" >
                 <div>
-                  <label className="block text-[0.6rem] tracking-widest uppercase mb-2" style={{ color: 'var(--muted)' }}>
+                  <label className="block text-[0.6rem] tracking-widest uppercase mb-2" style={{ color: 'var(--muted)' }} >
+                    Name
+                  </label>
+                  <input type="text" name="from_name" placeholder="Your name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all" style={{ border: '1px solid var(--border)', color: 'var(--fg)', fontFamily: 'Space Mono' }} onFocus={e => (e.target.style.borderColor = 'var(--accent)')} onBlur={e => (e.target.style.borderColor = 'var(--border)')} required disabled={status === 'sending'} />
+                </div>
+
+                <div>
+                  <label className="block text-[0.6rem] tracking-widest uppercase mb-2" style={{ color: 'var(--muted)' }} >
+                    Email
+                  </label>
+                  <input type="email" name="reply_to" placeholder="your@email.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all" style={{ border: '1px solid var(--border)', color: 'var(--fg)', fontFamily: 'Space Mono' }} onFocus={e => (e.target.style.borderColor = 'var(--accent)')} onBlur={e => (e.target.style.borderColor = 'var(--border)')} required disabled={status === 'sending'} />
+                </div>
+
+                <div>
+                  <label className="block text-[0.6rem] tracking-widest uppercase mb-2" style={{ color: 'var(--muted)' }}  >
                     Message
                   </label>
-                  <textarea rows={5} placeholder="Tell me about your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all resize-none" style={{ border: '1px solid var(--border)', color: 'var(--fg)', fontFamily: 'Space Mono', }} onFocus={e => (e.target.style.borderColor = 'var(--accent)')} onBlur={e => (e.target.style.borderColor = 'var(--border)')} required />
+                  <textarea rows={5} name="message" placeholder="Tell me about your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all resize-none" style={{ border: '1px solid var(--border)', color: 'var(--fg)', fontFamily: 'Space Mono' }} onFocus={e => (e.target.style.borderColor = 'var(--accent)')} onBlur={e => (e.target.style.borderColor = 'var(--border)')} required disabled={status === 'sending'} />
                 </div>
-                <button type="submit" className="btn-accent w-full flex items-center justify-center gap-3">
-                  <Send size={13} />
-                  {tr.contact_btn}
+
+                {status === 'error' && (
+                  <p style={{ fontSize: '0.75rem', color: '#ff4444', fontFamily: 'Space Mono' }}>
+                    ⚠ {errorMsg}
+                  </p>
+                )}
+
+                <button type="submit" className="cursor-pointer btn-accent w-full flex items-center justify-center gap-3" disabled={status === 'sending'} style={{ opacity: status === 'sending' ? 0.7 : 1, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                  {status === 'sending' ? (
+                    <>
+                      <Loader2 size={14} style={{ animation: 'spin 1s linear infinite' }} />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={13} />
+                      {tr.contact_btn}
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -91,16 +141,15 @@ export default function ContactSection({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-24 pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--border)' }} >
-          <div className="flex items-center gap-3">
-            <span className="text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-              Lazizbek Rahimov © 2026
-            </span>
-          </div>
-          <div className="text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
+          <span className="text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
+            Lazizbek Rahimov © 2026
+          </span>
+          <span className="text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
             Built with Next.js + TypeScript
-          </div>
+          </span>
         </div>
       </div>
+
     </section>
   );
 }
