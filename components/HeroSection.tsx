@@ -20,22 +20,21 @@ export default function HeroSection({ lang }: { lang: Lang }) {
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
         <div className="flex items-center gap-4 mb-8 animate-slide-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           <Terminal size={12} style={{ color: 'var(--accent)' }} />
-          <span className="text-[0.62rem] tracking-[0.25em] uppercase" style={{ color: 'var(--muted)' }}>
+          <span className="text-[0.62rem] tracking-[0.25em] uppercase " style={{ color: 'var(--muted)' }}>
             {tr.role}
           </span>
           <div className="flex-1 h-px" style={{ background: 'var(--border)' }} />
         </div>
 
-        <div className='flex flex-col justify-center items-center'>
-
+        <div className='flex flex-col justify-center items-center select-none'>
           <div className="relative mb-6">
-            <h1 className="font-display glitch" data-text="lazizbek" style={{ fontFamily: 'Brusher', fontSize: 'clamp(3rem, 13vw, 11rem)', lineHeight: 1.1, color: 'var(--fg)', }} >
+            <h1 className="font-display" data-text="lazizbek" style={{ fontFamily: 'Brusher', fontSize: 'clamp(3rem, 13vw, 11rem)', lineHeight: 1.1, color: 'var(--fg)', }} >
               lazizbek
             </h1>
           </div>
 
           <div className="relative mb-6">
-            <h1 className="font-display glitch" data-text="rahimov" style={{ fontFamily: 'Brusher', fontSize: 'clamp(3rem, 13vw, 11rem)', lineHeight: 1.1, color: 'var(--fg)', }} >
+            <h1 className="font-display" data-text="rahimov" style={{ fontFamily: 'Brusher', fontSize: 'clamp(3rem, 13vw, 11rem)', lineHeight: 1.1, color: 'var(--fg)', }} >
               rahimov
             </h1>
           </div>
@@ -59,7 +58,7 @@ export default function HeroSection({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="mt-16 overflow-hidden border-t border-b py-2" style={{ borderColor: 'var(--border)' }} >
+        <div className="mt-16 overflow-hidden border-t border-b py-2 select-none" style={{ borderColor: 'var(--border)' }} >
           <div className="ticker-inner">
             {['JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Express', 'Node.js', 'PostgreSQL', 'React', 'MongoDB', 'Next.js', 'Nest.js', 'Git', 'Linux', 'Swagger', '●', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Express', 'Node.js', 'PostgreSQL', 'React', 'MongoDB', 'Next.js', 'Nest.js', 'Git', 'Linux', 'Swagger', '●'].map((item, i) => (
               <span key={i} className="mx-4 text-[0.6rem] tracking-widest uppercase" style={{ color: item === '●' ? 'var(--accent)' : 'var(--muted)' }} >

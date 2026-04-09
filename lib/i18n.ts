@@ -29,7 +29,7 @@ export const t: Record<Lang, Record<string, string>> = {
 
     about_title: 'About Me',
     about_text:
-      'Hey! I’m a full-stack developer based in Tashkent. I love turning ideas into web apps that are clean, fast, and reliable. Outside of coding, you’ll usually find me exploring retro tunes, tinkering with cars, or geeking out over design trends.',
+      'Hey! I’m a full-stack developer based in Tashkent. I recently completed my studies at Najot Ta’lim, and I love pushing myself to show my full potential by turning ideas into clean, fast, and reliable web apps. When I’m not coding, I’m usually exploring retro music, tinkering with cars, or keeping up with design trends.',
 
     projects_title: 'Projects',
     projects_sub: 'Some of my favorite work — and more coming soon',
@@ -65,7 +65,7 @@ export const t: Record<Lang, Record<string, string>> = {
 
     about_title: 'Men haqimda',
     about_text:
-      'Salom! Men Toshkentda faoliyat yurituvchi full-stack dasturchiman. G‘oyalarni tez, toza va ishonchli web-ilovalarga aylantirishni yaxshi ko‘raman. Kod yozmayotgan paytimda retro musiqini tinglayman, avtomobillar bilan shug‘ullanaman yoki dizayn trendlarini o‘rganaman.',
+      'Salom! Men Toshkentda faoliyat yurituvchi full-stack dasturchiman va yaqinda Najot Ta’limda o‘qishni tamomlaganman. Kod yozish orqali o‘z potentsialimni to‘liq namoyon qilishni va g‘oyalarni tez, toza va ishonchli web-ilovalarga aylantirishni yaxshi ko‘raman. Bo‘sh vaqtimda retro musiqini tinglash, avtomobillar bilan shug‘ullanish va dizayn trendlarini o‘rganishni yoqtiraman.',
 
     projects_title: 'Loyihalar',
     projects_sub: 'Eng sevimli ishlashlarim — va yana tez orada ko‘proq',
@@ -101,7 +101,7 @@ export const t: Record<Lang, Record<string, string>> = {
 
     about_title: 'Обо мне',
     about_text:
-      'Привет! Я full-stack разработчик из Ташкента. Люблю превращать идеи в чистые, быстрые и надежные веб-приложения. В свободное время слушаю ретро музыку, интересуюсь автомобилями и слежу за трендами в дизайне.',
+      'Привет! Я full-stack разработчик из Ташкента. Недавно я завершил обучение в Najot Ta’lim, и мне нравится показывать свой полный потенциал, превращая идеи в чистые, быстрые и надежные веб-приложения. В свободное время слушаю ретро музыку, интересуюсь автомобилями и слежу за трендами в дизайне.',
 
     projects_title: 'Проекты',
     projects_sub: 'Некоторые из моих любимых проектов — и скоро добавлю ещё',

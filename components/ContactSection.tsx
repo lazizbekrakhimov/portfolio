@@ -45,13 +45,6 @@ export default function ContactSection({ lang }: { lang: Lang }) {
       <div className="absolute inset-0 grid-bg opacity-10" style={{ pointerEvents: 'none' }} />
 
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-px" style={{ background: 'var(--accent)' }} />
-          <span className="text-[0.6rem] tracking-[0.25em] uppercase" style={{ color: 'var(--accent)' }}>
-            05 / {tr.contact_title}
-          </span>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <h2 className="font-display mb-4" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1, color: 'var(--fg)' }} >
@@ -68,7 +61,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                 { icon: Link2, label: 'LinkedIn', value: 'linkedin.com/in/lazizbekrakhimov', href: 'https://linkedin.com/in/lazizbekrakhimov' },
                 { icon: Send, label: 'Telegram', value: 't.me/otabekovich25', href: 'https://t.me/otabekovich25' },
               ].map(({ icon: Icon, label, value, href }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link w-full" style={{ display: 'flex', justifyContent: 'space-between' }} >
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link w-full select-none" style={{ display: 'flex', justifyContent: 'space-between' }} >
                   <span className="flex items-center gap-3">
                     <Icon size={12} style={{ color: 'var(--accent)' }} />
                     <span style={{ color: 'var(--muted)' }}>{label}</span>
@@ -96,7 +89,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" >
                 <div>
-                  <label className="block text-[0.6rem] tracking-widest uppercase mb-2" style={{ color: 'var(--muted)' }} >
+                  <label className="block text-[0.6rem] tracking-widest uppercase mt-7 mb-2" style={{ color: 'var(--muted)' }} >
                     Name
                   </label>
                   <input type="text" name="from_name" placeholder="Your name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="w-full px-4 py-3 text-sm bg-transparent outline-none transition-all" style={{ border: '1px solid var(--border)', color: 'var(--fg)', fontFamily: 'Space Mono' }} onFocus={e => (e.target.style.borderColor = 'var(--accent)')} onBlur={e => (e.target.style.borderColor = 'var(--border)')} required disabled={status === 'sending'} />
@@ -122,7 +115,7 @@ export default function ContactSection({ lang }: { lang: Lang }) {
                   </p>
                 )}
 
-                <button type="submit" className="cursor-pointer btn-accent w-full flex items-center justify-center gap-3" disabled={status === 'sending'} style={{ opacity: status === 'sending' ? 0.7 : 1, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+                <button type="submit" className="cursor-pointer btn-accent w-full flex items-center justify-center gap-3 select-none" disabled={status === 'sending'} style={{ opacity: status === 'sending' ? 0.7 : 1, transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)' }}>
                   {status === 'sending' ? (
                     <>
                       <Loader2 size={14} style={{ animation: 'spin 1s linear infinite' }} />
@@ -140,12 +133,9 @@ export default function ContactSection({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="mt-24 pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--border)' }} >
+        <div className="mt-24 pt-8 flex flex-col md:flex-row items-center justify-center gap-4" style={{ borderTop: '1px solid var(--border)' }} >
           <span className="text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-            Lazizbek Rahimov © 2026
-          </span>
-          <span className="text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
-            Built with Next.js + TypeScript
+            © 2026 Lazizbek Rahimov. All rights reserved.
           </span>
         </div>
       </div>

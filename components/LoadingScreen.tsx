@@ -30,7 +30,7 @@ export default function LoadingScreen({ onDone }: { onDone: () => void }) {
 
       <div className="relative z-10 flex flex-col items-center gap-10">
         <div className="text-center relative">
-          <div className="font-display crt-glow relative" style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', color: 'var(--fg)', lineHeight: 1, animation: 'flicker 1.5s infinite alternate', }}  >
+          <div className="font-display relative" style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', color: 'var(--fg)', lineHeight: 1, animation: 'flicker 1.5s infinite alternate', }}  >
             {greetings[langs[index]]}
           </div>
           <div style={{ position: 'absolute', top: 0, left: '-50%', width: '200%', height: '100%', background: 'linear-gradient(120deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.04) 100%)', transform: 'skewX(-20deg)', pointerEvents: 'none', animation: 'lightSweep 2s infinite' }} />

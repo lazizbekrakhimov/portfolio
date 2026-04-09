@@ -70,14 +70,14 @@ export default function AboutSection({ lang }: { lang: Lang }) {
 
   const infoCards = [
     { icon: MapPin, label: 'Location', value: 'Tashkent, UZ' },
-    { icon: Calendar, label: 'Experience', value: '1+ Years' },
+    { icon: Calendar, label: 'Experience', value: '1 Years' },
     { icon: Code2, label: 'Focus', value: 'Full-Stack' },
     { icon: Briefcase, label: 'Status', value: 'Open to work' },
   ];
 
   const stats = [
     { num: 5, suffix: '+', label: 'Projects' },
-    { num: 1, suffix: '+', label: 'Years exp' },
+    { num: 1, suffix: '', label: 'Years exp' },
     { num: 10, suffix: '+', label: 'Technologies' },
     { num: 100, suffix: '%', label: 'Committed' },
   ];
@@ -87,12 +87,6 @@ export default function AboutSection({ lang }: { lang: Lang }) {
       <div className="absolute left-0 top-0 bottom-0 w-px hidden md:block" style={{ background: 'linear-gradient(to bottom, transparent, var(--accent), transparent)' }} />
 
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-px" style={{ background: 'var(--accent)' }} />
-          <span className="text-[0.6rem] tracking-[0.25em] uppercase" style={{ color: 'var(--accent)' }}>
-            01 / {tr.about_title}
-          </span>
-        </div>
         <h2 className="font-display mb-15" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1, color: 'var(--fg)', opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(24px)', transition: 'all 0.6s ease', }}  >
           {tr.about_title}
         </h2>
@@ -135,12 +129,12 @@ export default function AboutSection({ lang }: { lang: Lang }) {
 
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(24px)', transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s', }} >
           
-            <div className="retro-border mb-4" style={{ background: '#0d0d0d', fontFamily: 'Space Mono', overflow: 'hidden' }} >
+            <div className="mb-4" style={{ background: '#0d0d0d', fontFamily: 'Space Mono', overflow: 'hidden' }} >
               <div style={{ background: '#1a1a1a', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '6px', borderBottom: '1px solid rgba(255,255,255,0.06)', }}>
                 {['#ff5f56', '#ffbd2e', '#27c93f'].map(c => (
                   <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c, flexShrink: 0 }} />
                 ))}
-                <span style={{ marginLeft: 8, fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>
+                <span className='select-none' style={{ marginLeft: 8, fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>
                   ~/lazizbek/developer.ts
                 </span>
               </div>

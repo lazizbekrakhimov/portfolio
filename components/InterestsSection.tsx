@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Lang, t } from '@/lib/i18n';
 import { Music, Gauge, Play } from 'lucide-react';
 
-const AlbumCover = ({ title, year, color, pattern, active, onClick }: {
+const AlbumCover = ({ color, pattern, active, onClick }: {
   title: string; year: string; color: string; pattern: 'homework' | 'discovery' | 'human' | 'alive' | 'ram';
   active: boolean; onClick: () => void;
 }) => {
@@ -16,7 +16,7 @@ const AlbumCover = ({ title, year, color, pattern, active, onClick }: {
   };
 
   return (
-    <button onClick={onClick} style={{ position: 'relative', width: active ? 88 : 68, height: active ? 88 : 68, flexShrink: 0, cursor: 'pointer', transition: 'all 0.35s cubic-bezier(0.34, 1.3, 0.64, 1)', transform: active ? 'rotate(0deg) scale(1.05)' : 'rotate(-3deg)', border: `1px solid ${active ? color : 'rgba(255,255,255,0.08)'}`, boxShadow: active ? `0 0 20px ${color}44, 4px 4px 0 ${color}33` : 'none', background: 'transparent', overflow: 'hidden', }} >
+    <button onClick={onClick} style={{ position: 'relative', width: active ? 98 : 78, height: active ? 98 : 78, flexShrink: 0, cursor: 'pointer', transition: 'all 0.35s cubic-bezier(0.34, 1.3, 0.64, 1)', transform: active ? 'rotate(0deg) scale(1.05)' : 'rotate(-3deg)', boxShadow: active ? `0 0 20px ${color}44, 4px 4px 0 ${color}33` : 'none', background: 'transparent', overflow: 'hidden', }} >
       {designs[pattern]}
       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${color}22 0%, transparent 60%)`, opacity: active ? 1 : 0, transition: 'opacity 0.3s', pointerEvents: 'none', }} />
     </button>
@@ -65,18 +65,12 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
       <div className="absolute inset-0 grid-bg opacity-10" />
 
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-px" style={{ background: 'var(--accent)' }} />
-          <span className="text-[0.6rem] tracking-[0.25em] uppercase" style={{ color: 'var(--accent)' }}>
-            03 / {tr.interests_title}
-          </span>
-        </div>
         <h2 className="font-display mb-16" style={{ fontSize: 'clamp(3rem, 7vw, 5rem)', lineHeight: 1, color: 'var(--fg)', opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(20px)', transition: 'all 0.6s ease', }} >
           {tr.interests_title}
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="retro-border relative overflow-hidden" style={{ padding: '28px', background: 'var(--card)', opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(-30px)', transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s', }} >
+          <div className="relative overflow-hidden" style={{ padding: '28px', background: 'var(--card)', opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(-30px)', transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s', }} >
             <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: `radial-gradient(circle at 80% 20%, ${album.color}12 0%, transparent 60%)`, transition: 'background 0.5s ease', }} />
 
             <div className="flex items-center gap-3 mb-6">
@@ -94,22 +88,22 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
               DAFT PUNK
             </div>
 
-            <div className="text-[0.65rem] tracking-widest uppercase mb-6" style={{ color: 'var(--muted)' }}>
+            <div className="text-[0.65rem] tracking-widest uppercase mb-8" style={{ color: 'var(--muted)' }}>
               Discography — select an album
             </div>
-            <div className="flex gap-3 mb-6 flex-wrap">
+            <div className="flex gap-3 mb-6 flex-wrap w-full h-26.25 select-none">
               {albums.map((a, i) => (
                 <AlbumCover key={a.title} title={a.title} year={a.year} color={a.color} pattern={a.pattern} active={activeAlbum === i} onClick={() => setActiveAlbum(i)} />
               ))}
             </div>
 
-            <div style={{ border: '1px solid var(--border)', background: 'rgba(0,0,0,0.2)', padding: '14px', transition: 'all 0.3s ease', }} >
+            <div style={{ transition: 'all 0.3s ease', }} >
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <div className="font-bold text-sm" style={{ color: album.color, transition: 'color 0.3s' }}>
+                  <div className="font-bold text-xl" style={{ color: album.color, transition: 'color 0.3s' }}>
                     {album.title}
                   </div>
-                  <div className="text-[0.58rem] mt-0.5" style={{ color: 'var(--muted)' }}>{album.year}</div>
+                  <div className="text-[0.78rem] mt-0.5" style={{ color: 'var(--muted)' }}>{album.year}</div>
                 </div>
                 <div className="flex items-center gap-0.5 h-7 mt-1">
                   {[4, 7, 5, 9, 6, 8, 4, 7, 5, 6, 8, 4].map((h, i) => (
@@ -121,11 +115,11 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
               <div className="space-y-1.5">
                 {album.tracks.map((track, i) => (
                   <div key={track} className="flex items-center gap-2">
-                    <span style={{ color: album.color, fontSize: '0.55rem', opacity: 0.7, minWidth: '12px' }}>
+                    <span style={{ color: album.color, fontSize: '0.7rem', opacity: 0.7, minWidth: '12px' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
-                    <span style={{ fontSize: '0.6rem', color: i === 0 ? 'var(--fg)' : 'var(--muted)', fontFamily: 'Space Mono', letterSpacing: '0.05em' }}>
+                    <span style={{ fontSize: '0.8rem', color: i === 0 ? 'var(--fg)' : 'var(--muted)', fontFamily: 'Space Mono', letterSpacing: '0.05em' }}>
                       {track}
                     </span>
                     {i === 0 && <Play size={8} style={{ color: album.color, flexShrink: 0 }} />}
@@ -134,7 +128,7 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="flex flex-wrap gap-2 mt-10">
               {['Electronic', 'House', 'French Touch', 'Iconic', 'Robots'].map(tag => (
                 <span key={tag} style={{ fontSize: '0.65rem', padding: '3px 8px', letterSpacing: '0.12em', border: '1px solid var(--border)', color: 'var(--muted)', textTransform: 'uppercase', }}>
                   {tag}
@@ -143,7 +137,7 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
             </div>
           </div>
 
-          <div className="retro-border relative overflow-hidden" style={{ padding: '28px', background: 'var(--card)', opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(30px)', transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s', }} >
+          <div className="relative overflow-hidden" style={{ padding: '28px', background: 'var(--card)', opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(30px)', transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s', }} >
             <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: activeCar === 'porsche' ? 'radial-gradient(circle at 60% 80%, rgba(30,144,255,0.08) 0%, transparent 60%)' : 'radial-gradient(circle at 40% 80%, rgba(245,240,232,0.04) 0%, transparent 60%)', transition: 'background 0.5s ease', }} />
 
             <div className="flex items-center gap-3 mb-6">
@@ -154,12 +148,9 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
                 <div className="text-[0.52rem] tracking-widest uppercase" style={{ color: 'var(--muted)' }}>Interest — Automobiles</div>
                 <div className="text-sm font-bold" style={{ color: 'var(--fg)' }}>Performance Cars</div>
               </div>
-              <div className="ml-auto stamp" style={{ fontSize: '0.5rem', borderColor: 'var(--fg)', color: 'var(--fg)' }}>
-                GERMANY
-              </div>
             </div>
 
-            <div className="flex gap-2 mb-6">
+            <div className="flex gap-2 mb-6 select-none">
               {(['porsche', 'mercedes'] as const).map(car => (
                 <button key={car} onClick={() => setActiveCar(car)} style={{ flex: 1, padding: '8px', textTransform: 'uppercase', fontSize: '0.62rem', letterSpacing: '0.15em', fontFamily: 'Space Mono', border: `1px solid ${activeCar === car ? (car === 'porsche' ? 'var(--accent)' : 'var(--fg)') : 'var(--border)'}`, color: activeCar === car ? (car === 'porsche' ? 'var(--accent)' : 'var(--fg)') : 'var(--muted)', background: activeCar === car ? 'var(--blue-dim)' : 'transparent', transition: 'all 0.25s', cursor: 'pointer' }} >
                   {car === 'porsche' ? '◈ Porsche' : '◇ Mercedes'}
@@ -167,7 +158,7 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
               ))}
             </div>
 
-            <div style={{ width: '100%', height: '110px', position: 'relative', marginBottom: '16px', transition: 'opacity 0.3s', }}>
+            <div className='select-none' style={{ width: '100%', height: '160px', position: 'relative', marginBottom: '16px', transition: 'opacity 0.3s', }}>
               <div style={{ position: 'absolute', inset: 0, opacity: activeCar === 'porsche' ? 1 : 0, transform: activeCar === 'porsche' ? 'translateY(0)' : 'translateY(8px)', transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)' }}>
                 <CarSVG model="porsche" />
               </div>
@@ -205,7 +196,7 @@ export default function InterestsSection({ lang }: { lang: Lang }) {
               ))}
             </div>
 
-            <div style={{ borderLeft: '2px solid var(--accent)', paddingLeft: '12px' }}>
+            <div style={{ borderLeft: activeCar === 'porsche' ? '3px solid var(--accent)' : '3px solid var(--fg)', paddingLeft: '12px' }}>
               <p className='w-85' style={{ fontSize: '0.80rem', color: 'var(--muted)', fontFamily: 'Space Mono', lineHeight: 1.7 }}>
                 {activeCar === 'porsche'
                   ? '"The 911 is the only car that has managed to keep its original shape while constantly evolving. Pure engineering artistry."'

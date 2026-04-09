@@ -12,18 +12,25 @@ import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('en');
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme as 'dark' | 'light');
+    }
     const visited = sessionStorage.getItem('visited');
     if (visited) setLoading(false);
   }, []);
 
   useEffect(() => {
-    if (mounted) document.documentElement.className = theme;
+    if (mounted) {
+      document.documentElement.className = theme;
+      localStorage.setItem('theme', theme);
+    }
   }, [theme, mounted]);
 
   const handleLoadingDone = () => {
