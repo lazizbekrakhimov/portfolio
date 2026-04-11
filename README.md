@@ -29,7 +29,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 🌍 Languages Supported
 
-EN · RU · UZ · DE · FR · JA
+EN · RU · UZ
 
 ## 📁 Project Structure
 
@@ -62,9 +62,9 @@ Edit `components/ProjectsSection.tsx` — find the `projects` array and replace 
 
 ## 🌗 Features
 
-- ✅ Dark / Light mode toggle
-- ✅ 6-language switcher (EN, RU, UZ, DE, FR, JA)
-- ✅ Multilingual loading screen (Apple-style greetings)
+- ✅ Light / Dark mode toggle
+- ✅ 6-language switcher (EN, RU, UZ)
+- ✅ Multilingual loading screen
 - ✅ Custom animated cursor
 - ✅ Glitch text effect on hero name
 - ✅ Chaotic/abstract skills layout
