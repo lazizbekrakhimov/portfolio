@@ -61,14 +61,14 @@ export const t: Record<Lang, Record<string, string>> = {
     nav_contact: 'Aloqa',
 
     skills_title: 'Ko‘nikmalar',
-    skills_sub: 'Kunlik ishlashda foydalanuvchi texnologiyalarim',
+    skills_sub: 'Kunlik ishlarda foydalanadigan texnologiyalarim',
 
     about_title: 'Men haqimda',
     about_text:
-      'Salom! Men Toshkentda faoliyat yurituvchi full-stack dasturchiman va yaqinda Najot Ta’limda o‘qishni tamomlaganman. Kod yozish orqali o‘z potentsialimni to‘liq namoyon qilishni va g‘oyalarni tez, toza va ishonchli web-ilovalarga aylantirishni yaxshi ko‘raman. Bo‘sh vaqtimda retro musiqini tinglash, avtomobillar bilan shug‘ullanish va dizayn trendlarini o‘rganishni yoqtiraman.',
+      'Salom! Men Toshkentda faoliyat yurituvchi full-stack dasturchiman va yaqinda Najot Ta’limda o‘qishni tamomlaganman. Kod yozish orqali o‘z potentsialimni to‘liq namoyon qilishni va g‘oyalarni tez, toza va ishonchli web-ilovalarga aylantirishni yaxshi ko‘raman. Bo‘sh vaqtimda musiqa tinglash, avtomobillar bilan shug‘ullanish va dizayn trendlarini o‘rganishni yoqtiraman.',
 
     projects_title: 'Loyihalar',
-    projects_sub: 'Eng sevimli ishlashlarim — va yana tez orada ko‘proq',
+    projects_sub: 'Eng sevimli ishlashlarim — va yana tez orada ko‘proq bo‘ladi',
 
     contact_title: 'Gaplashamiz',
     contact_sub: 'Qiziqarli loyihalar va hamkorliklarga har doim ochiqman',
@@ -76,7 +76,7 @@ export const t: Record<Lang, Record<string, string>> = {
 
     loading: 'Yuklanmoqda…',
 
-    not_found_title: 'Ups! Sahifa topilmadi',
+    not_found_title: 'Ehh! Sahifa topilmadi',
     not_found_sub: 'Qayerdadir yo‘lni adashtirdingiz.',
     not_found_btn: 'Bosh sahifaga',
 

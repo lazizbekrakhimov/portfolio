@@ -12,7 +12,7 @@ import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('en');
-  const [theme, setTheme] = useState<'dark' | 'light'>('light');
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [loading, setLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
 

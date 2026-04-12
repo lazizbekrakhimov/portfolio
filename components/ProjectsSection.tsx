@@ -7,8 +7,8 @@ const projects = [
   {
     id: '01',
     title: 'Restaurant Platform',
-    description: 'A fullstack restaurant management platform built with Next.js and Nest.js that helps manage orders, menus, and users in a structured workflow. Designed with PostgreSQL-backed APIs for real-world usability.',
-    tech: ['Next.js', 'TypeScript', 'Redux', 'Nest.js', 'PostgreSQL'],
+    description: 'A fullstack restaurant management platform built with Next.js and Nest.js that helps manage orders, menus, and users in a structured workflow.',
+    tech: ['Next.js', 'TypeScript', 'TailwindCSS', 'Redux Toolkit', 'Nest.js', 'PostgreSQL', 'TypeORM', 'JWT', 'Swagger'],
     github: 'https://github.com/lazizbekrakhimov/restaurant-project',
     live: 'https://restaurant-project-final.vercel.app/',
     status: 'Live',
@@ -19,7 +19,7 @@ const projects = [
     id: '02',
     title: 'Vintage Industrial Admin Dashboard',
     description: 'An admin dashboard built with a vintage industrial design approach, combining structured data management with a distinctive retro-inspired interface.',
-    tech: ['React', 'TailwindCSS', 'FakeApi'],
+    tech: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'FakeApi'],
     github: 'https://github.com/lazizbekrakhimov/sector-25.git',
     live: 'https://sector-25.vercel.app/',
     status: 'Live',
@@ -28,20 +28,20 @@ const projects = [
   },
   {
     id: '03',
-    title: 'Todolist',
-    description: 'A productivity-focused task management application currently in development. Built with React and TailwindCSS, it aims to provide a clean workflow for organizing daily tasks with a modern interface.',
-    tech: ['React', 'TailwindCSS'],
-    github: 'https://github.com/lazizbekrakhimov/todolist',
-    live: 'https://todolist-desktop.vercel.app/',
-    status: 'Development',
+    title: 'Najot Ta\'lim Admin Panel',
+    description: 'A professional CRM admin panel clone of the Najot Ta\'lim platform, designed to manage student data and educational workflows with a modern UI.',
+    tech: ['React', 'TypeScript', 'Ant Design', 'Redux Toolkit', 'React Query', 'TailwindCSS'],
+    github: 'https://github.com/lazizbekrakhimov/crm-project',
+    live: 'https://crm-project-najottalim.vercel.app/',
+    status: 'In Production',
     year: '2026',
-    image: '/images/todolist.png',
+    image: '/images/najottalim.png',
   },
   {
     id: '04',
     title: 'Backend Projects Collection',
     description: 'Backend projects on GitHub featuring APIs, database integration, and scalable architectures with Nest.js, Express, and TypeScript.',
-    tech: ['Nest.js', 'Express', 'TypeScript', 'PostgreSQL', 'MongoDB'],
+    tech: ['Nest.js', 'Express', 'TypeScript', 'PostgreSQL', 'MongoDB', 'RestAPI', 'TypeORM'],
     github: 'https://github.com/lazizbekrakhimov',
     live: '',
     status: 'In Progress',
@@ -71,7 +71,7 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
       );
       setAnimDir(null);
       setVisible(true);
-    }, 220);
+    }, 320);
   };
 
   return (
@@ -96,9 +96,9 @@ export default function ProjectsSection({ lang }: { lang: Lang }) {
         </div>
 
         <div style={{ background: 'var(--card)', opacity: visible ? 1 : 0, transform: visible ? 'translateX(0)' : animDir === 'left' ? 'translateX(-24px)' : 'translateX(24px)', transition: 'opacity 0.22s ease, transform 0.22s ease', }} >
-          <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', minHeight:'520px'}}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', minHeight: '520px' }}>
 
-            <div style={{ position: 'relative', overflow: 'hidden', borderRight: '1px solid var(--border)' }}>
+            <div style={{ position: 'relative', overflow: 'hidden' }}>
               <img className='select-none' src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block', transition: 'transform 0.5s ease' }} onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')} onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, var(--card) 100%)', pointerEvents: 'none' }} />
             </div>

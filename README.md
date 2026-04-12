@@ -1,6 +1,6 @@
 # Lazizbek Rahimov — Portfolio
 
-A retro-vintage-futurist portfolio site built with Next.js 15, TypeScript, and Tailwind CSS.
+A retro-futurist portfolio site built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ## 🚀 Getting Started
 
@@ -9,15 +9,13 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
 ## 🛠 Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + Custom CSS
 - **Icons**: Lucide React
-- **Fonts**: Bebas Neue, DM Serif Display, Space Mono
+- **Fonts**: Bebas Neue, DM Serif Display, Space Mono, Brusher
 
 ## 🎨 Design System
 
@@ -29,7 +27,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 🌍 Languages Supported
 
-EN · RU · UZ · DE · FR · JA
+EN · RU · UZ
 
 ## 📁 Project Structure
 
@@ -42,7 +40,6 @@ app/
   globals.css       — Design system
 
 components/
-  Cursor.tsx        — Custom cursor
   LoadingScreen.tsx — Intro animation (multilingual greetings)
   Navbar.tsx        — Navigation + theme + lang switch
   HeroSection.tsx   — Hero with glitch name effect
@@ -56,21 +53,16 @@ lib/
   i18n.ts           — All translations
 ```
 
-## ✏️ Adding Your Projects
-
-Edit `components/ProjectsSection.tsx` — find the `projects` array and replace the placeholder entries with your real projects.
-
 ## 🌗 Features
 
 - ✅ Dark / Light mode toggle
-- ✅ 6-language switcher (EN, RU, UZ, DE, FR, JA)
-- ✅ Multilingual loading screen (Apple-style greetings)
-- ✅ Custom animated cursor
+- ✅ 3-language switcher (EN, RU, UZ)
+- ✅ Pagination on Project Section
+- ✅ Multilingual loading screen
 - ✅ Glitch text effect on hero name
 - ✅ Chaotic/abstract skills layout
 - ✅ Retro hover effects on all buttons
 - ✅ VHS scan-line effect
-- ✅ 404 page with glitch animation
 - ✅ Noise grain overlay
 - ✅ Ticker tape tech stack scroll
 - ✅ Contact form

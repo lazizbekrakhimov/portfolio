@@ -77,7 +77,7 @@ export default function AboutSection({ lang }: { lang: Lang }) {
 
   const stats = [
     { num: 5, suffix: '+', label: 'Projects' },
-    { num: 1, suffix: '', label: 'Years exp' },
+    { num: 1, suffix: '+', label: 'Years exp' },
     { num: 10, suffix: '+', label: 'Technologies' },
     { num: 100, suffix: '%', label: 'Committed' },
   ];
@@ -128,9 +128,9 @@ export default function AboutSection({ lang }: { lang: Lang }) {
           </div>
 
           <div style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(24px)', transition: 'all 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s', }} >
-          
+
             <div className="mb-4" style={{ background: '#0d0d0d', fontFamily: 'Space Mono', overflow: 'hidden' }} >
-              <div style={{ background: '#1a1a1a', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '6px', borderBottom: '1px solid rgba(255,255,255,0.06)', }}>
+              <div style={{ background: '#1a1a1a', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 {['#ff5f56', '#ffbd2e', '#27c93f'].map(c => (
                   <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c, flexShrink: 0 }} />
                 ))}
